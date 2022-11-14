@@ -5,6 +5,7 @@ from sqlalchemy.orm import relationship
 
 from datetime import datetime
 
+SHORT_URL_LENGTH = 8
 
 class ShortURL(Base):
     __tablename__ = "shorturl"
