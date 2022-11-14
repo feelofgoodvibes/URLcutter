@@ -25,7 +25,16 @@ def create_shorturl(db: Session, shorturl: shorturl.ShortURLCreate):
 
 
 def get_shorturl_by_id(db: Session, shorturl_id: int):
-    return db.query(ShortURL).filter(ShortURL.id == shorturl_id).first()
+    shorturl = db.query(ShortURL).filter(ShortURL.id == shorturl_id).first()
+    
+    if shorturl is None:
+        return None
+
+    return {
+        "url": shorturl.url,
+        "shortcode": shorturl.shortcode,
+        "stats": [s.visit_time for s in shorturl.stats]
+    }
 
 
 def get_shorturl_by_shortcode(db: Session, shortcode: str):

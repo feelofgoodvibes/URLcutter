@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from .stats import Statistics
+from datetime import datetime
 
 
 class ShortURL(BaseModel):
@@ -15,4 +16,4 @@ class ShortURLCreate(BaseModel):
 
 
 class ShortURLFull(ShortURL):
-    statistics: list[Statistics]
+    stats: list[datetime]
