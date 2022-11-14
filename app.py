@@ -19,7 +19,7 @@ def get_db():
         db.close()
 
 
-@app.post("/", response_model=shorturl.ShortURL)
+@app.post("/", response_model=shorturl.ShortURLFull)
 def shorturl_create(shorturl: shorturl.ShortURLCreate, db: Session = Depends(get_db)):
     return db_worker.create_shorturl(db, shorturl)
 

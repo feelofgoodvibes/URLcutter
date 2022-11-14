@@ -31,6 +31,7 @@ def get_shorturl_by_id(db: Session, shorturl_id: int):
         return None
 
     return {
+        "id": shorturl.id,
         "url": shorturl.url,
         "shortcode": shorturl.shortcode,
         "views": len(shorturl.stats),

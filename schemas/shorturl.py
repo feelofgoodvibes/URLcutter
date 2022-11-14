@@ -16,5 +16,6 @@ class ShortURLCreate(BaseModel):
 
 
 class ShortURLFull(ShortURL):
-    views: int
+    id: int
+    views: int = 0
     stats: list[datetime]
