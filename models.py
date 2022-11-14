@@ -22,7 +22,7 @@ class Statistics(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     short_url = Column(Integer, ForeignKey("shorturl.id"))
-    visit_time = Column(DateTime)
+    visit_time = Column(DateTime, default=datetime.now)
 
 
 

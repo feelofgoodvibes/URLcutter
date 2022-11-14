@@ -22,3 +22,11 @@ def create_shorturl(db: Session, shorturl: shorturl.ShortURLCreate):
     db.refresh(db_shorturl)
 
     return db_shorturl
+
+
+def get_shorturl_by_id(db: Session, shorturl_id: int):
+    return db.query(ShortURL).filter(ShortURL.id == shorturl_id).first()
+
+
+def get_shorturl_by_shortcode(db: Session, shortcode: str):
+    return db.query(ShortURL).filter(ShortURL.shortcode == shortcode).first()
